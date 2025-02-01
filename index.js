@@ -1,5 +1,7 @@
 console.log("Hello World!")
 
+// Create function for the computer choice
+
 function getComputerChoice () {
     let choice = Math.floor ( Math.random () * 3 ) + 1;
 
@@ -15,6 +17,8 @@ function getComputerChoice () {
             break;
     }
 }
+
+// Create function for the player choice 
 
 function getHumanChoice () {
 
@@ -43,10 +47,16 @@ function getHumanChoice () {
     while (!choice);
 }
 
+// Create general function where the game takes place
+
 function playGame () {
+
+    // Create variables to store human and computer scores
 
     let humanScore = 0;
     let computerScore = 0;
+
+    // Function with the logic of the game on each round, it decides who win and who loses and modify the score
 
     function playRound (humanChoice, computerChoice) {
         console.log(`You: ${humanChoice.toUpperCase()}`);
@@ -88,11 +98,15 @@ function playGame () {
     
     }
 
+    // Repeat until the player or the computer reach 3 points
+
     while ( humanScore < 3 && computerScore < 3 ) {
 
         playRound (getHumanChoice(), getComputerChoice());
 
     }
+
+    //Declare the game result
 
     if ( humanScore == 3 ) {
         console.log(`You Win The Game!\nYou: ${humanScore}\nComputer: ${computerScore}`);
@@ -101,5 +115,7 @@ function playGame () {
     }
 
 }
+
+// Begin the game
 
 playGame();
