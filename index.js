@@ -94,18 +94,21 @@ function playGame() {
             
         button.addEventListener("click", (e) => {
                 
-        
-            humanChoice = e.target.textContent.toLowerCase();
-            computerChoice = getComputerChoice();
-        
-            playRound(humanChoice, computerChoice);
+            if (humanScore < 5 && computerScore < 5) {
+
+                humanChoice = e.target.textContent.toLowerCase();
+                computerChoice = getComputerChoice();
+            
+                playRound(humanChoice, computerChoice);
+            };
+            
 
             if ( humanScore == 5 ) {
-                resultsPara.textContent = `You Win The Game!\nYou: ${humanScore}\nComputer: ${computerScore}`;
+                resultsPara.textContent = `You Win The Game!`;
                 results.appendChild(resultsPara);
-                
+
             } else if ( computerScore == 5 ) {
-                resultsPara.textContent = `You Lose The Game!\nYou: ${humanScore}\nComputer: ${computerScore}`;
+                resultsPara.textContent = `You Lose The Game!`;
                 results.appendChild(resultsPara);
 
             }
